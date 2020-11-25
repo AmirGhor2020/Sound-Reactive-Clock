@@ -4,6 +4,7 @@ const numbers01 = _.range(numCircles);
 
 let mic;
 let myFont;
+let v;
 
 // MilliSecond variables
 let lastSecond = -1
@@ -32,7 +33,12 @@ function preload() {
 function myClockFace() {
   let vol = mic.getLevel();
   for (let n of numbers01) {
-    let size = map(n, 0, numCircles, 1100, vol * 10000);
+    if (colourChanger) {
+      v = vol * 10000
+    } else {
+      v = vol * 10000
+    }
+    let size = map(n, 0, numCircles, 1100, v);
     
     // Day mode // White mode //////////////////////////////////////
     if (colourChanger) {
