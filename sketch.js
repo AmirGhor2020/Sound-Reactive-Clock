@@ -31,15 +31,14 @@ function preload() {
 
 // Day mode and night mode clock face //////////////////////////////
 function myClockFace() {
+  if (!colourChanger) {
   let vol = mic.getLevel();
+  v = vol * 10000
+  } else {
+    v = 0
+  }
   for (let n of numbers01) {
-    if (colourChanger) {
-      v = vol * 10000
-    } else {
-      v = vol * 10000
-    }
     let size = map(n, 0, numCircles, 1100, v);
-    
     // Day mode // White mode //////////////////////////////////////
     if (colourChanger) {
       red = map(n, 0, numCircles, random(250, 255), 0);
